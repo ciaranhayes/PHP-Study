@@ -19,12 +19,28 @@
                     'name' => "On Earth We're Briefly Gorgeous",
                     'author' => 'Ocean Vuong',
                     'url' => 'https://www.adlibris.com/se/bok/on-earth-were-briefly-gorgeous-9781529110685?utm_source=google&utm_medium=cpc&utm_campaign=AR:+BOK+-+pMAX+Shopping+-+Generic+-+B%C3%B6cker+ENG&gad_source=1&gclid=Cj0KCQiAkoe9BhDYARIsAH85cDMWe_URC8hAbDHb1cOA3MeUl-3gaKJzFnSb-V6a98407Dh4PLSHPxMaAmiaEALw_wcB'
+            ],
+            [
+                    'name' => "A Little Life",
+                'author' => 'Hanya Yanagihara',
+                'url' => 'https://www.adlibris.com/se/bok/a-little-life-9780804172707?utm_source=google&utm_medium=cpc&utm_campaign=AR:+BOK+-+pMAX+Shopping+-+Generic+-+B%C3%B6cker+ENG&gad_source=1&gclid=Cj0KCQiAkoe9BhDYARIsAH85cDPvrnz3Kk2GLjhBnUjMV1QKfYopWh412Y8j32NmhN691D9xBaoCAlQaAkJOEALw_wcB'
             ]
         ];
+
+        function filterByAuthor($books, $author) {
+            $filteredBooks = [];
+
+            foreach ($books as $book) {
+                if ($book['author'] === $author) {
+                    $filteredBooks[] = $book;
+                }
+            }
+            return $filteredBooks;
+        }
     ?>
 
     <ul>
-        <?php foreach ($books as $book) : ?>
+        <?php foreach (filterByAuthor($books, 'Hanya Yanagihara') as $book) : ?>
             <li>
                 <a href="<?php echo($book['url']);?>">
                     <?= $book['name']; ?>
@@ -35,6 +51,5 @@
             </li>
         <?php endforeach; ?>
     </ul>
-
 </body>
 </html>
