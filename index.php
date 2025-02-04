@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Demo</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vw;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
+    <?php
+        $name = 'Call Me By Your Name';
+        $read = true;
+
+    if ($read == true) {
+        $message = "You have read $name.";
+    } else {
+        $message = "You have not read $name.";
+    }
+    ?>
+
     <h1>
         <?php
-        $greeting = "Hello";
-        // to nest a variable you have to use double quotes!
-            echo "$greeting, Everybody!";
+        echo $message;
         ?>
     </h1>
 </body>
