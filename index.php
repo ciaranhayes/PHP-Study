@@ -10,17 +10,31 @@
 
     <?php
         $books = [
-                'Call Me By Your Name',
-            "On Earth We're Briefly Gorgeous",
-            'A Little Life'
+                [
+                    'name' => "Call Me By Your Name",
+                    'author' => "André Aciman",
+                    'url' => "https://www.adlibris.com/se/bok/call-me-by-your-name-9789178090518?utm_source=google&utm_medium=cpc&utm_campaign=AR:+BOK+-+pMAX+Shopping+-+Generic+-+B%C3%B6cker&gad_source=1&gclid=Cj0KCQiAkoe9BhDYARIsAH85cDOp3LH1kIhHdE4TKZ5jERPI6yrG37_kDXH2oXTkeiY42jLcvRqeJ3oaAhISEALw_wcB"
+                ],
+            [
+                    'name' => "On Earth We're Briefly Gorgeous",
+                    'author' => 'Ocean Vuong',
+                    'url' => 'https://www.adlibris.com/se/bok/on-earth-were-briefly-gorgeous-9781529110685?utm_source=google&utm_medium=cpc&utm_campaign=AR:+BOK+-+pMAX+Shopping+-+Generic+-+B%C3%B6cker+ENG&gad_source=1&gclid=Cj0KCQiAkoe9BhDYARIsAH85cDMWe_URC8hAbDHb1cOA3MeUl-3gaKJzFnSb-V6a98407Dh4PLSHPxMaAmiaEALw_wcB'
+            ]
         ];
     ?>
 
     <ul>
-        <?php
-        foreach ($books as $book) : ?>
-            <li><?php echo $book ?></li>
+        <?php foreach ($books as $book) : ?>
+            <li>
+                <a href="<?php echo($book['url']);?>">
+                    <?= $book['name']; ?>
+                </a>
+                <p>
+                    <?= $book['author']; ?>
+                </p>
+            </li>
         <?php endforeach; ?>
     </ul>
+
 </body>
 </html>
