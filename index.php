@@ -8,7 +8,9 @@
 <body>
     <h1>
         <?php
-            echo "Hello, World!";
+        $greeting = "Hello";
+        // to nest a variable you have to use double quotes!
+            echo "$greeting, Everybody!";
         ?>
     </h1>
 </body>
