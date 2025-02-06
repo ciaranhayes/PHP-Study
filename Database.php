@@ -1,20 +1,23 @@
 <?php
 class Database {
     public $connection;
+    public $host = "localhost";
+    public $port = "3306";
+    public $user = "user";
+    public $password = "123";
+    public $database = "db";
     public function __construct() {
-        $dsn = "mysql:host=localhost:3306;dbname=db;charset=utf8mb4";
+        $dsn = "mysql:host=$this->host:$this->port;dbname=$this->database;charset=utf8mb4";
 
-        $this->connection = new PDO($dsn, "user", "123");
+        $this->connection = new PDO($dsn, $this->user, $this->password);
     }
+
     public function query($query) {
         $statement = $this->connection->prepare($query);
+
         $statement->execute();
 
-        return $statement->fetch(PDO::FETCH_ASSOC);
+        return $statement->fetchALL(PDO::FETCH_ASSOC);
     }
 }
 
-$db = new Database();
-$posts = $db->query("select * from posts");
-
-dd($posts['title']);
