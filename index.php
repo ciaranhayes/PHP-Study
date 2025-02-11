@@ -6,9 +6,14 @@ require 'Database.php';
 
 $db = new Database();
 
-$posts = $db->query("SELECT * FROM posts WHERE id = 1");
+$id = $_GET['id'];
+
+$query = "SELECT * FROM posts WHERE id = :id";
+
+$posts = $db->query($query, ["id" => $id]);
 
 dd($posts);
+
 
 
 
