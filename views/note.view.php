@@ -7,7 +7,7 @@
                 <a href="/notes" class="text-blue-500 hover:underline">go back . . .</a>
             </p>
 
-            <p><?= $note[0]['body'] ?></p>
+            <p><?= $note['body'] ?></p>
         </div>
     </main>
 

@@ -1,6 +1,7 @@
 <?php
 class Database {
     public $connection;
+    public $statement;
     public $host = "localhost";
     public $port = "3306";
     public $user = "user";
@@ -13,11 +14,11 @@ class Database {
     }
 
     public function query($query, $params = []) {
-        $statement = $this->connection->prepare($query);
+        $this->statement = $this->connection->prepare($query);
 
-        $statement->execute($params);
+        $this->statement->execute($params);
 
-        return $statement->fetchALL(PDO::FETCH_ASSOC);
+        return $this->statement;
     }
 }
 
